@@ -1,3 +1,3 @@
 npm install
 npm run build
-pm2 start npm --name "7131 main_project_sellerpanda" -- start
+pm2 start npm --name "6201 feelancer_1" -- start

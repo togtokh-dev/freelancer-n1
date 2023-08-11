@@ -3,12 +3,12 @@ import { Types } from "mongoose";
 
 const userSchema = new mongoose.Schema<any>(
   {
-    about_en: String,
-    about_mon: String,
-    image: String,
+    type: String,
+    en: String,
+    mon: String,
   },
   { timestamps: true }
 );
 
-const users = mongoose.model<any>("medias", userSchema);
+const users = mongoose.model<any>("language", userSchema);
 export default users;

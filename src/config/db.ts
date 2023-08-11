@@ -1,20 +1,17 @@
 import mongoose from "mongoose";
 import bluebird from "bluebird";
-import { NOSQL } from "../util/secrets";
+import { MONGODB_URI, MONGODB_DB } from "../util/secrets";
 const connectDB = async () => {
   mongoose.set("strictQuery", true);
   mongoose.Promise = bluebird;
   try {
-    const conn = await mongoose.connect(
-      `${NOSQL.DB_MONGODB_SERVER}://${NOSQL.DB_MONGODB_USER}:${NOSQL.DB_MONGODB_PASSWORD}@${NOSQL.DB_MONGODB_HOST}/${NOSQL.DB_MONGODB_QUERY}`,
-      {
-        dbName: NOSQL.DB_MONGODB_DATABASE,
-        // useNewUrlParser: true,
-        // useCreateIndex: true,
-        // useUnifiedTopology: true,
-        // useFindAndModify: false,
-      }
-    );
+    const conn = await mongoose.connect(`${MONGODB_URI}`, {
+      dbName: MONGODB_DB,
+      // useNewUrlParser: true,
+      // useCreateIndex: true,
+      // useUnifiedTopology: true,
+      // useFindAndModify: false,
+    });
     console.log(
       `Data base connected : ${conn.connection.host}@${conn.connection.name}`
     );
@@ -33,16 +30,13 @@ export const connectReload = async () => {
   mongoose.set("strictQuery", true);
   mongoose.Promise = bluebird;
   try {
-    const conn = await mongoose.connect(
-      `${NOSQL.DB_MONGODB_SERVER}://${NOSQL.DB_MONGODB_USER}:${NOSQL.DB_MONGODB_PASSWORD}@${NOSQL.DB_MONGODB_HOST}/${NOSQL.DB_MONGODB_QUERY}`,
-      {
-        dbName: NOSQL.DB_MONGODB_DATABASE,
-        // useNewUrlParser: true,
-        // useCreateIndex: true,
-        // useUnifiedTopology: true,
-        // useFindAndModify: false,
-      }
-    );
+    const conn = await mongoose.connect(`${MONGODB_URI}`, {
+      dbName: MONGODB_DB,
+      // useNewUrlParser: true,
+      // useCreateIndex: true,
+      // useUnifiedTopology: true,
+      // useFindAndModify: false,
+    });
     console.log(
       `Data base connected : ${conn.connection.host}@${conn.connection.name}`
     );

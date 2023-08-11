@@ -1,18 +1,10 @@
 import { Request, Response, Router } from "express";
-import authRouter from "./api/auth/router";
-import profileRouter from "./api/profile/router";
-import funRouter from "./api/fun/router";
-import serviceRouter from "./api/services/routes";
+import mainRouter from "./api/routes";
 // Routes
 const router = Router();
 const routers = Router();
 //
-router.use("/auth", authRouter);
-router.use("/profile", profileRouter);
-router.use("/verify_token", profileRouter);
-
-router.use("/fun", funRouter);
-router.use("/", serviceRouter);
+router.use("/", mainRouter);
 //
 routers.use("/api/v1", router);
 // Router not found

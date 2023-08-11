@@ -1,4 +1,4 @@
-import axiosRequest from "../../axios";
+import axiosRequest from "axios-master";
 export const create_golomt_simple = async (data: any) => {
   try {
     const result = await axiosRequest("invoice create", false, {

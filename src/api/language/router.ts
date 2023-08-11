@@ -1,10 +1,9 @@
 import { Router } from "express";
 const router = Router();
 import { getall, one, create, remove, update } from "./controller";
-import { checkToken, authorize } from "../../../auth/token_validation";
 router.get("/", getall);
 router.get("/:id", one);
-router.post("/", checkToken, create);
-router.delete("/:id", checkToken, remove);
-router.put("/:id", checkToken, update);
+router.post("/", create);
+router.delete("/:id", remove);
+router.put("/:id", update);
 export default router;

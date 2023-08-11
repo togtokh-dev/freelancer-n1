@@ -2,4 +2,4 @@ git checkout ./
 git pull
 npm install
 npm run build
-pm2 restart "7131 main_project_sellerpanda"
+pm2 restart "6201 feelancer_1"

@@ -8,12 +8,27 @@ import fileupload from "express-fileupload";
 import bodyParser from "body-parser";
 import lusca from "lusca";
 import path from "path";
+import morgan from "morgan";
 import compression from "compression";
 const jsonParser = bodyParser.json();
 const app: Express = express();
 import date from "date-and-time";
 connectDB();
 const cors_urls = [];
+app.use(
+  morgan(function (tokens: any, req: any, res: any) {
+    return [
+      date.format(new Date(), "YYYY/MM/DD HH:mm:ss"),
+      tokens.method(req, res),
+      tokens.url(req, res),
+      tokens.status(req, res),
+      tokens.res(req, res, "content-length"),
+      "-",
+      tokens["response-time"](req, res),
+      "ms",
+    ].join(" ");
+  })
+);
 app.use(
   cookieParser(),
   fileupload(),
