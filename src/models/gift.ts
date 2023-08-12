@@ -4,11 +4,13 @@ import { Types } from "mongoose";
 const userSchema = new mongoose.Schema<any>(
   {
     id: String,
-    title: String,
+    title_en: String,
+    description_en: String,
+    title_mon: String,
+    description_mon: String,
     screen: String,
     img: String,
     amount: Number,
-    description: String,
     date: String,
   },
   { timestamps: true }
